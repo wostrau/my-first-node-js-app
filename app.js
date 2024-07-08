@@ -1,7 +1,23 @@
-const http = require('http');
+// const http = require('http');
+// const {handler} = require('./routes');
+const express = require('express');
+const bodyParser = require('body-parser');
+const adminRoutes = require('./routes/admin');
+const shopRoutes = require('./routes/shop');
 
-const { handler } = require('./routes');
+const app = express();
 
-const server = http.createServer(handler);
+// app.use((req, res, next) => {
+//   console.log('In the middleware');
+//   next();
+// });
 
-server.listen(3000);
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(adminRoutes);
+
+app.use(shopRoutes);
+
+// const server = http.createServer(app);
+// server.listen(3000);
+app.listen(3000);
