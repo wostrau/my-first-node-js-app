@@ -18,8 +18,8 @@ const app = express();
 //     layoutsDir: path.join(__dirname, 'views', 'layouts'),
 //   })
 // );
-app.engine('handlebars', engine());
-app.set('view engine', 'handlebars');
+app.engine('hbs', engine());
+app.set('view engine', 'hbs');
 app.set('views', './views');
 
 // app.use((req, res, next) => {
